@@ -18,4 +18,4 @@ git config user.email "stdwal.dev@gmail.com"
 git add .
 git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
 
-git push --force --quiet "https://${TravisToken}@${GH_REF}" master:master
+git push --force --quiet "https://${Travis-Token}@${GH_REF}" master:master
