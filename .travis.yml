@@ -9,15 +9,21 @@ cache:
 
 before_install:
     - export TZ='Asia/Shanghai'
+    - npm install --save hexo-renderer-scss
     - npm install hexo-cli -g
+    - npm install --save hexo-renderer-scss
     - chmod +x ./publish-to-gh-pages.sh
+    - npm install --save hexo-renderer-scss
 
 install:
+    - npm install --save hexo-renderer-scss
     - npm install
-    - npm install --save hexo-renderer-scss@1
+    - npm install --save hexo-renderer-scss
 
 script:
+    - npm install --save hexo-renderer-scss
     - hexo clean
+    - npm install --save hexo-renderer-scss
     - hexo g
 
 after_script:
