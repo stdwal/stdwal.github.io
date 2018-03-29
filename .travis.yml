@@ -14,8 +14,8 @@ before_install:
 
 install:
     - npm install
-    - ls
-    - npm install --save hexo-renderer-scss -g
+    - pwd
+    - npm install hexo-renderer-scss --save
 
 script:
     - hexo clean
