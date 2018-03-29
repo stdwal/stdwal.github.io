@@ -14,12 +14,11 @@ before_install:
 
 install:
     - npm install
+    - ls
     - npm install --save hexo-renderer-scss -g
 
 script:
-    - npm install --save hexo-renderer-scss
     - hexo clean
-    - npm install --save hexo-renderer-scss
     - hexo g
 
 after_script:
