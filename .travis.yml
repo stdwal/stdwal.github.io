@@ -9,12 +9,12 @@ cache:
 
 before_install:
     - export TZ='Asia/Shanghai'
-    - npm install hexo-renderer-scss --save
     - npm install hexo-cli -g
     - chmod +x ./publish-to-gh-pages.sh
 
 install:
     - npm install
+    - npm install --save hexo-renderer-scss
 
 script:
     - hexo clean
