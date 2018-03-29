@@ -11,12 +11,12 @@ before_install:
     - export TZ='Asia/Shanghai'
     - npm install hexo-cli -g
     - chmod +x ./publish-to-gh-pages.sh
-    - npm install hexo-renderer-scss --save
 
 install:
     - npm install
 
 script:
+    - npm install hexo-renderer-scss --save
     - hexo clean
     - hexo g
 
