@@ -10,6 +10,7 @@ cache:
 before_install:
     - export TZ='Asia/Shanghai'
     - npm install hexo-cli -g
+    - npm install hexo-renderer-scss --save
     - chmod +x ./publish-to-gh-pages.sh
 
 install:
