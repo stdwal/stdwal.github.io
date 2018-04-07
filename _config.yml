@@ -73,7 +73,13 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: even
+theme: apollo
+
+archive_generator:
+    per_page: 0
+    yearly: false
+    monthly: false
+    daily: false
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

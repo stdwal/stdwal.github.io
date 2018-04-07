@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>stdwal</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://stdwal.github.io/"/>
+  <updated>2018-04-07T08:27:35.914Z</updated>
+  <id>https://stdwal.github.io/</id>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于分治法求最大子序列和问题</title>
+    <link href="https://stdwal.github.io/2018/03/28/max-subsequence-sum/"/>
+    <id>https://stdwal.github.io/2018/03/28/max-subsequence-sum/</id>
+    <published>2018-03-27T16:00:00.000Z</published>
+    <updated>2018-04-07T08:27:35.914Z</updated>
+    
+    <content type="html"><![CDATA[<p>求解最大子序列和问题有大致四个算法，效率分别为O(n^3)、O(n^2)、O(logn)和O(n)。</p><p>显然O(n)是最完美的线性联机算法，但这里主要讨论使用分治法递归求解。</p><a id="more"></a><p>分治策略是将问题分成两个大致相等的子问题，然后递归地对它们求解。因此我们可将整个序列分成两部分求解。</p><p>例如序列： 4 -3 5 -2 -1 2 6 -2</p><table><thead><tr><th>前半部分</th><th>后半部分</th></tr></thead><tbody><tr><td>4 -3 5 -2</td><td>-1 2 6 -2</td></tr></tbody></table><p>最大子序列的和可能在三处位置出现：或者整个出现在输入数据的左半边，或者整个数据的右半边，或者跨越输入数据的中部从而占据左右两半部分。</p><p>因此三者中的最大值即为最大子序列和。在本例中，前半部分的最大子序列和为6，后半部分的子序列和为8，而跨越两个部分的最大子序列和为11，因此该例的答案为11.</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MaxSubSum</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> MaxLeftSum, MaxRightSum;</span><br><span class="line">    <span class="keyword">int</span> MaxLeftBorderSum, MaxRightBorderSum;</span><br><span class="line">    <span class="keyword">int</span> LeftBorderSum, RightBoarderSum;</span><br><span class="line">    <span class="keyword">int</span> Center, i;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (left == right) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[left] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> A[left];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    Center = (left + right) / <span class="number">2</span>;</span><br><span class="line">    MaxLeftSum = MaxSubSum(A, left, Center);</span><br><span class="line">    MaxRightSum = MaxSubSum(A, Center + <span class="number">1</span>, right);</span><br><span class="line"></span><br><span class="line">    MaxLeftBorderSum = LeftBorderSum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = Center; i &gt;= left; i--) &#123;</span><br><span class="line">        LeftBorderSum += A[i];</span><br><span class="line">        <span class="keyword">if</span> (LeftBorderSum &gt; MaxLeftBorderSum) &#123;</span><br><span class="line">            MaxLeftBorderSum = LeftBorderSum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    MaxRightBorderSum = RightBoarderSum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = Center + <span class="number">1</span>; i &lt;= right; i++) &#123;</span><br><span class="line">        RightBoarderSum += A[i];</span><br><span class="line">        <span class="keyword">if</span> (RightBoarderSum &gt; MaxRightBorderSum) &#123;</span><br><span class="line">            MaxRightBorderSum = RightBoarderSum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Max3(MaxLeftSum, MaxRightSum,</span><br><span class="line">         MaxLeftBorderSum + MaxRightBorderSum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>代码第7-13行处理基准情况，即当序列中只有一个元素时，如果该元素大于0，则该元素的值就是最大子序列之和，否则答案为0。</p><p>代码第18-31行分别处理左右两部分的最大子序列和问题。</p><p>最后将三者的最大值返回即可。</p><hr><p>参考文献：《数据结构与算法分析（C语言描述）》</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;求解最大子序列和问题有大致四个算法，效率分别为O(n^3)、O(n^2)、O(logn)和O(n)。&lt;/p&gt;
+&lt;p&gt;显然O(n)是最完美的线性联机算法，但这里主要讨论使用分治法递归求解。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="algorithms" scheme="https://stdwal.github.io/tags/algorithms/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://stdwal.github.io/2018/01/01/hello-world/"/>
+    <id>https://stdwal.github.io/2018/01/01/hello-world/</id>
+    <published>2017-12-31T16:00:00.000Z</published>
+    <updated>2018-04-01T11:31:20.977Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

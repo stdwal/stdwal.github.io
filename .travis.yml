@@ -14,8 +14,9 @@ before_install:
 
 install:
     - npm install
-    - npm rebuild node-sass
-    - npm install hexo-renderer-scss --save
+    # - npm rebuild node-sass
+    - npm install --save hexo-renderer-jade hexo-generator-feed hexo-generator-sitemap hexo-browsersync hexo-generator-archive
+    # - npm install hexo-renderer-scss --save
 
 script:
     - hexo clean
