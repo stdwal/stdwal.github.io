@@ -182,12 +182,12 @@ td, th {
 
 ::-moz-selection {
     color: #FFFFFF;
-    background-color: #42b983
+    background-color: #c05b4d
 }
 
 ::selection {
     color: #FFFFFF;
-    background-color: #42b983
+    background-color: #c05b4d
 }
 
 html, body {
@@ -220,7 +220,7 @@ a, a:active {
 }
 
 a.nav-list-link.active, a.nav-list-link:hover, a.post-title-link:hover {
-    border-bottom: 2px solid #42b983
+    border-bottom: 2px solid #c05b4d
 }
 
 hr {
@@ -313,7 +313,7 @@ header .nav-list-item a {
 }
 
 .home.post-list .read-more {
-    color: #42b983
+    color: #c05b4d
 }
 
 .archive {
@@ -332,7 +332,7 @@ header .nav-list-item a {
 .archive .post-title-link {
     display: block;
     margin-left: 125px;
-    color: #42b983;
+    color: #c05b4d;
     word-break: break-all
 }
 
@@ -382,7 +382,7 @@ header .nav-list-item a {
 
 .post-content h2:before, .post-content h3:before, .post-content h4:before, .post-content h5:before, .post-content h6:before {
     content: "#";
-    color: #42b983;
+    color: #c05b4d;
     position: absolute;
     left: -0.7em;
     top: -4px;
@@ -403,14 +403,14 @@ header .nav-list-item a {
 }
 
 .post-content a {
-    color: #42b983;
+    color: #c05b4d;
     word-break: break-all
 }
 
 .post-content blockquote {
     margin: 2em 0;
     padding-left: 20px;
-    border-left: 4px solid #42b983
+    border-left: 4px solid #c05b4d
 }
 
 .post-content img {
@@ -615,7 +615,7 @@ pre .tag, pre .tag .title, pre .change, pre .winutils, pre .flow, pre .lisp .tit
 }
 
 pre .symbol, pre .symbol .string, pre .value, pre .regexp {
-    color: #42b983
+    color: #c05b4d
 }
 
 pre .title {
@@ -623,7 +623,7 @@ pre .title {
 }
 
 pre .tag .value, pre .string, pre .subst, pre .haskell .type, pre .preprocessor, pre .ruby .class .parent, pre .built_in, pre .sql .aggregate, pre .django .template_tag, pre .django .variable, pre .smalltalk .class, pre .javadoc, pre .django .filter .argument, pre .smalltalk .localvars, pre .smalltalk .array, pre .attr_selector, pre .pseudo, pre .addition, pre .stream, pre .envvar, pre .apache .tag, pre .apache .cbracket, pre .tex .command, pre .prompt {
-    color: #42b983
+    color: #c05b4d
 }
 
 pre .comment, pre .java .annotation, pre .python .decorator, pre .template_comment, pre .pi, pre .doctype, pre .shebang, pre .apache .sqbracket, pre .tex .formula {
