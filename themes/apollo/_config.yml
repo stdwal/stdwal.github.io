@@ -1,8 +1,8 @@
 menu:
     Blog: /
     Archive: /archives/
-    Weibo: http://weibo.com/sunchongsheng
-    GitHub: https://github.com/pinggod
+    Messages: /messages/
+    GitHub: https://github.com/stdwal
     Rss: /atom.xml
 
 favicon: /favicon.png
@@ -10,7 +10,7 @@ logo: /favicon.png
 
 # Comment
 # e.g disqus: seansun
-disqus:
+disqus: stdwal
 duoshuo:
 
 # Analytics
@@ -18,4 +18,4 @@ duoshuo:
 # ga: UA-xxxxxxxx-x
 
 # Copyright Infomation
-startyear: 2015
+startyear: 2017
