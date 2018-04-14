@@ -5,8 +5,7 @@ categories: life
 tags: life
 ---
 
-He who has a strong enough why can bear almost any how.
-                                                        —————Friedrich Nietzsche
+He who has a strong enough why can bear almost any how.         ----Friedrich Nietzsche
 
 <!--more-->
 
