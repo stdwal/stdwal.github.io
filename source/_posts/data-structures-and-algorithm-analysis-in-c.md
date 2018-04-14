@@ -5,7 +5,7 @@ tag:
     - algorithm
 ---
 
-# 算法分析
+#### 算法分析
 * 符号
 * [最大子序列](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/max_sum.c)
 * 对分查找
@@ -13,7 +13,7 @@ tag:
 * [幂运算](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/fig2_11.c)
 * 对数运行时间
 
-# 表、栈和队列
+#### 表、栈和队列
 * ADT
 * [链表](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/list.c)
 * 双链表
@@ -27,19 +27,19 @@ tag:
 * 中缀转后缀
 * [队列](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/queue.c)
 
-# 树
+#### 树
 * [二叉查找树](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/tree.c)
 * [AVL树](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/avltree.c)
 * [伸展树](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/splay.c)
 * 树的遍历（先序、中序、后序、层序）
 * B-树
 
-# 散列
+#### 散列
 * [散列函数](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/hashfunc.c)
 * [分离链接法](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/hashsep.c)
 * 开放定址法（线性探测、[平方探测](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/hashquad.c)、双散列）
 * [再散列](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/hashquad.c)
 * 可扩散列
 
-# 优先队列
+#### 优先队列
 * [二叉堆](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/binheap.c)
