@@ -5,6 +5,10 @@ tag:
     - algorithm
 ---
 
+书中所有码源参见(https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c)
+
+<!--more-->
+
 #### 算法分析
 * 符号
 * [最大子序列](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/max_sum.c)
