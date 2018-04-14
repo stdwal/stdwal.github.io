@@ -1,7 +1,6 @@
 menu:
     Blog: /
     Archive: /archives/
-    Category: /categories/
     Messages: /messages/
     # GitHub: https://github.com/stdwal
     Rss: /atom.xml
