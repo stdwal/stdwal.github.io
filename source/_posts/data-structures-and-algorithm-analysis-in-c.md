@@ -5,7 +5,7 @@ tag:
     - algorithm
 ---
 
-书中所有码源参见(https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c)
+书中所有码源参见https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c
 
 <!--more-->
 
