@@ -11,7 +11,7 @@ tags: life
 
 We lost, we failed, we broken, we fell down.
 
-But we hope, we recover, we rise, we march on.
+But we hope, we revive, we rise, we march on.
 
 We don't need to be great, don't need to shine like stars, and we can't always.
 
