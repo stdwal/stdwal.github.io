@@ -47,3 +47,5 @@ tag:
 
 #### 优先队列
 * [二叉堆](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/binheap.c)
+* d-堆
+* [左式堆](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/leftheap.c)

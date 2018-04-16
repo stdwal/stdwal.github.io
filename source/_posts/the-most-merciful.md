@@ -5,7 +5,7 @@ categories: life
 tags: life
 ---
 
-He who has a strong enough why can bear almost any how.         ----Friedrich Nietzsche
+![](/images/IMG_1780.JPG)
 
 <!--more-->
 
@@ -19,4 +19,4 @@ Your story may not have such a happy beginning, but that doesn't make who your a
 
 Everything we done defines us.
 
-![](/images/IMG_1780.JPG)
+He who has a strong enough why can bear almost any how.
