@@ -1,5 +1,5 @@
 ---
-title: 《数据结构与算法分析——C语言描述》知识点及代码(未完)
+title: 《数据结构与算法分析——C语言描述》知识点及代码
 tag:
     - data structures
     - algorithm
@@ -49,3 +49,5 @@ tag:
 * [二叉堆](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/binheap.c)
 * d-堆
 * [左式堆](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/leftheap.c)
+* 斜堆
+* [二项队列](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/binomial.c)
