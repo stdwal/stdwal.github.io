@@ -1,5 +1,5 @@
 ---
-title: 语言是最仁慈的东西
+title: 语言是最仁慈的存在
 date: 2018.4.1
 categories: life
 tags: life
