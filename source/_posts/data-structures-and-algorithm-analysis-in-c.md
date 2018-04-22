@@ -51,3 +51,12 @@ tag:
 * [左式堆](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/leftheap.c)
 * 斜堆
 * [二项队列](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/binomial.c)
+
+#### [排序](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/sort.c)
+* 插入排序
+* 希尔排序
+* 堆排序
+* 归并排序
+* 快速排序
+* 桶式排序
+* 外部排序
