@@ -1,5 +1,6 @@
 ---
 title: 《数据结构与算法分析——C语言描述》知识点及代码
+date: 2018.4.14
 tag:
     - data structures
     - algorithm
