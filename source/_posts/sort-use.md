@@ -1,7 +1,7 @@
 ---
 title: 由字符串拼接看排序的应用
 date: 2018.4.24
-tag: algorithms
+tags: algorithms
 ---
 
 Given a collection of number segments, you are supposed to recover the smallest number from them. For example, given {32, 321, 3214, 0229, 87}, we can recover many numbers such like 32-321-3214-0229-87 or 0229-32-87-321-3214 with respect to different orders of combinations of these segments, and the smallest number is 0229-321-3214-32-87.

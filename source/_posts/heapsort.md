@@ -1,7 +1,7 @@
 ---
 title: 堆排序
 date: 2018.4.26
-tag: algorithms
+tags: algorithms
 ---
 
 堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。

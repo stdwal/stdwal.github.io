@@ -1,9 +1,9 @@
 ---
 title: 《数据结构与算法分析——C语言描述》知识点及代码
 date: 2018.4.14
-tag:
+tags:
     - data structures
-    - algorithm
+    - algorithms
 ---
 
 书中所有码源参见https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c
