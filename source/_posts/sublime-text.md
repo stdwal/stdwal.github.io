@@ -5,6 +5,8 @@ date: 2018.4.27
 
 Sublime Text3中文文档：http://www.sublimetextcn.com/docs/3/
 
+<!--more-->
+
 激活码（3143可用）：
 ```
 —– BEGIN LICENSE —– 
