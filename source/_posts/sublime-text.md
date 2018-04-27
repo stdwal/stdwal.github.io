@@ -23,3 +23,8 @@ D5D52613 C3D12E98 BC49967F 7652EED2
 E36B85CC 84991F19 7575D828 470A92AB 
 —— END LICENSE ——
 ```
+
+在终端中使用Sublime Text:
+```bash
+sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+```
