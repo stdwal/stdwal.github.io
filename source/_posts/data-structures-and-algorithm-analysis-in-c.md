@@ -61,3 +61,13 @@ tags:
 * 快速排序
 * 桶式排序
 * 外部排序
+
+#### [不相交集ADT](https://github.com/stdwal/data-structures-and-algorithm-analysis-in-c/blob/master/code/disjsets.c)
+* 路径压缩
+* 按秩求并
+* Union/Find算法分析
+
+#### 图论算法
+* 图的表示
+* 拓扑排序
+
