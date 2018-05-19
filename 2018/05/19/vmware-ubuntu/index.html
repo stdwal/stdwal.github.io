@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Vmware Fusion下Ubuntu学习 · stdwal</title><meta name="description" content="Vmware Fusion下Ubuntu学习 - stdwal"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://stdwal.github.io/atom.xml" title="stdwal"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/messages/" target="_self" class="nav-list-link">MESSAGES</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Vmware Fusion下Ubuntu学习</h1><div class="post-info">2018年5月19日</div><div class="post-content"><p><a href="https://cn.ubuntu.com" target="_blank" rel="noopener">下载Ubuntu发行版</a></p>
+<a id="more"></a>
+<h4 id="安装vmware-tools"><a href="#安装vmware-tools" class="headerlink" title="安装vmware tools"></a>安装vmware tools</h4><p>在虚拟机设置中点击安装vmware tools，获取一个VMwareTools-x.x.x-xxxx.tar.gz文件并解压。</p>
+<p>打开终端并输入以下命令以安装vmware tools</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./vmware-install.pl -d</span><br></pre></td></tr></table></figure>
+<p>其中-d表示接受默认设置</p>
+<h4 id="使用mac终端ssh连接到Ubuntu"><a href="#使用mac终端ssh连接到Ubuntu" class="headerlink" title="使用mac终端ssh连接到Ubuntu"></a>使用mac终端ssh连接到Ubuntu</h4><p>安装openssh-server</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+<p>使用 <strong>ifconfig</strong> 命令查看Ubuntu的IP地址</p>
+<p>如果提示 <em>Command ‘ifconfig’ not found</em> ,安装net-tools后再使用 <strong>ifconfig</strong> 获取IP</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install net-tools</span><br></pre></td></tr></table></figure>
+<p><img src="/images/ifconfig.png" alt="ifconfig"></p>
+<p>打开mac终端，连接到对应的主机</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh [username]@[ip]</span><br></pre></td></tr></table></figure>
+<p>如果有类似如下的提示</p>
+<blockquote>
+<p>The authenticity of host ‘172.16.204.132 (172.16.204.132)’ can’t be established.<br>ECDSA key fingerprint is SHA256:FdGYxwkyB8V7+0DFAKvwX/A1NkomzxV/cJ/Ynp/iACo.<br>Are you sure you want to continue connecting (yes/no)? yes</p>
+</blockquote>
+<p>输入yes建立连接</p>
+<p><img src="/images/ssh.png" alt="ssh"></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2018/04/27/sublime-text/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'stdwal';
+var disqus_identifier = '2018/05/19/vmware-ubuntu/';
+var disqus_title = 'Vmware Fusion下Ubuntu学习';
+var disqus_url = 'https://stdwal.github.io/2018/05/19/vmware-ubuntu/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//stdwal.disqus.com/count.js" async></script><div class="copyright"><p>© 2017 - 2018 <a href="https://stdwal.github.io">stdwal</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
