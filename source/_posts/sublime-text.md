@@ -1,13 +1,13 @@
 ---
-title: Sublime Text3使用
+title: Sublime Text3
 date: 2018.4.27
 ---
 
-Sublime Text3中文文档：http://www.sublimetextcn.com/docs/3/
-
 <!--more-->
 
-激活码（3143可用）：
+#### 激活
+
+点击Help->Enter License,输入激活码（3143可用）：
 ```
 —– BEGIN LICENSE —– 
 TwitterInc 
@@ -24,7 +24,18 @@ E36B85CC 84991F19 7575D828 470A92AB
 —— END LICENSE ——
 ```
 
-在终端中使用Sublime Text:
+
+#### 在终端中使用Sublime Text:
+
+在终端中输入
 ```
 sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 ```
+为subl创建链接
+
+
+#### 编写markdown
+
+按下```ctrl+shift+p```打开命令面板，输入```install```并选择```Package Control: install package```
+在跳出的面板中输入```markdown```选择安装```MarkdownEditing```
+
