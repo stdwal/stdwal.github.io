@@ -13,6 +13,7 @@ before_install:
     - chmod +x ./publish-to-gh-pages.sh
 
 install:
+    - npm install -g npm@2
     - npm install
     - npm rebuild node-sass
     - npm install --save hexo-renderer-jade hexo-generator-feed hexo-renderer-scss hexo-generator-sitemap hexo-browsersync hexo-generator-archive
