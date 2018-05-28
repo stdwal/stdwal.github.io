@@ -2,72 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://stdwal.github.io/2018/04/27/sublime-text/</loc>
+    <loc>https://stdwal.github.io/messages/index.html</loc>
     
-    <lastmod>2018-05-19T03:37:00.110Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://stdwal.github.io/2018/05/19/vmware-ubuntu/</loc>
-    
-    <lastmod>2018-05-19T03:36:21.198Z</lastmod>
+    <lastmod>2018-05-28T02:16:45.527Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://stdwal.github.io/2018/04/14/data-structures-and-algorithm-analysis-in-c/</loc>
     
-    <lastmod>2018-05-15T06:30:38.889Z</lastmod>
+    <lastmod>2018-05-28T02:16:45.519Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://stdwal.github.io/2018/04/26/heapsort/</loc>
     
-    <lastmod>2018-04-27T07:03:23.518Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://stdwal.github.io/2018/04/24/sort-use/</loc>
-    
-    <lastmod>2018-04-27T06:26:33.571Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://stdwal.github.io/2018/04/01/the-most-merciful/</loc>
-    
-    <lastmod>2018-04-27T06:26:25.812Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://stdwal.github.io/2018/03/28/max-subsequence-sum/</loc>
-    
-    <lastmod>2018-04-24T01:12:26.322Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://stdwal.github.io/messages/index.html</loc>
-    
-    <lastmod>2018-04-22T13:58:25.331Z</lastmod>
+    <lastmod>2018-05-28T02:16:45.519Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://stdwal.github.io/2018/01/01/hello-world/</loc>
     
-    <lastmod>2018-04-22T13:58:25.326Z</lastmod>
+    <lastmod>2018-05-28T02:16:45.519Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://stdwal.github.io/2018/03/28/max-subsequence-sum/</loc>
+    
+    <lastmod>2018-05-28T02:16:45.519Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://stdwal.github.io/2018/04/24/sort-use/</loc>
+    
+    <lastmod>2018-05-28T02:16:45.519Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://stdwal.github.io/2018/04/27/sublime-text/</loc>
+    
+    <lastmod>2018-05-28T02:16:45.519Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://stdwal.github.io/2018/04/04/two-arrays-median/</loc>
     
-    <lastmod>2018-04-22T13:58:25.326Z</lastmod>
+    <lastmod>2018-05-28T02:16:45.519Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://stdwal.github.io/2018/05/19/vmware-ubuntu/</loc>
+    
+    <lastmod>2018-05-28T02:16:45.519Z</lastmod>
     
   </url>
   
