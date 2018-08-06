@@ -14,6 +14,7 @@ before_install:
 
 install:
     - npm install -g
+    - npm install node-sass@latest
     # - npm install
     # - npm rebuild node-sass
     # - npm install --save hexo-renderer-jade hexo-generator-feed hexo-renderer-scss hexo-generator-sitemap hexo-browsersync hexo-generator-archive
