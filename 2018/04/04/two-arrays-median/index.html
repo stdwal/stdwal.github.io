@@ -4,7 +4,7 @@
 <p>11 12 13 14<br>9 10 15 16 17</p>
 <p>这两个序列，它们的中间值为13.</p>
 <p>最常见的做法是将这两个序列放入同一个数组中排序，然后输出第(a+b)/2个元素.</p>
-<p>但即使是O(logn)的快排在大规模数据里也难以在一秒内返回答案，我们需要利用数组有序的特点制定一种O(logn)的算法策略。</p>
+<p>但即使是O(nlogn)的快排在大规模数据里也难以在一秒内返回答案，我们需要利用数组有序的特点制定一种O(logn)的算法策略。</p>
 <p>我们把这个中值问题扩展到寻找第K小的值问题，等价于在两个数组中挑选出最小的K个元素。由于给定的数组已经按从小到大排序，通过比较两个数组各自的第K/2个元素可以将问题规模减小K/2。</p>
 <p><em>注：假设a[i]为a中第i个元素。</em></p>
 <p>定义函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">findkth(int a[], int b[], int k)</span><br></pre></td></tr></table></figure></p>
@@ -28,4 +28,4 @@ var disqus_url = 'https://stdwal.github.io/2018/04/04/two-arrays-median/';
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();</script><script id="dsq-count-scr" src="//stdwal.disqus.com/count.js" async></script><div class="copyright"><p>© 2017 - 2018 <a href="https://stdwal.github.io">stdwal</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+})();</script><script id="dsq-count-scr" src="//stdwal.disqus.com/count.js" async></script><div class="copyright"><p>© 2017 - 2019 <a href="https://stdwal.github.io">stdwal</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
