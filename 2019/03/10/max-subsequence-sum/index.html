@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 关于分治法求最大子序列和问题 · stdwal</title><meta name="description" content="关于分治法求最大子序列和问题 - stdwal"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://stdwal.github.io/atom.xml" title="stdwal"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/messages/" target="_self" class="nav-list-link">MESSAGES</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">关于分治法求最大子序列和问题</h1><div class="post-info">2018年3月28日</div><div class="post-content"><p>求解最大子序列和问题有大致四个算法，效率分别为O(n^3)、O(n^2)、O(logn)和O(n)。</p>
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 关于分治法求最大子序列和问题 · stdwal</title><meta name="description" content="关于分治法求最大子序列和问题 - stdwal"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://stdwal.github.io/atom.xml" title="stdwal"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/messages/" target="_self" class="nav-list-link">MESSAGES</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">关于分治法求最大子序列和问题</h1><div class="post-info">2019年3月10日</div><div class="post-content"><p>求解最大子序列和问题有大致四个算法，效率分别为O(n^3)、O(n^2)、O(logn)和O(n)。</p>
 <p>显然O(n)是最完美的线性联机算法，但这里主要讨论使用分治法递归求解。</p>
 <a id="more"></a>
 <p>分治策略是将问题分成两个大致相等的子问题，然后递归地对它们求解。因此我们可将整个序列分成两部分求解。</p>
@@ -25,10 +25,10 @@
 <p>最后将三者的最大值返回即可。</p>
 <hr>
 <p>参考文献：《数据结构与算法分析（C语言描述）》</p>
-</div></article></div></main><footer><div class="paginator"><a href="/2018/04/04/two-arrays-median/" class="prev">上一篇</a><a href="/2018/01/01/hello-world/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'stdwal';
-var disqus_identifier = '2018/03/28/max-subsequence-sum/';
+</div></article></div></main><footer><div class="paginator"><a href="/2019/02/26/heapsort/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'stdwal';
+var disqus_identifier = '2019/03/10/max-subsequence-sum/';
 var disqus_title = '关于分治法求最大子序列和问题';
-var disqus_url = 'https://stdwal.github.io/2018/03/28/max-subsequence-sum/';
+var disqus_url = 'https://stdwal.github.io/2019/03/10/max-subsequence-sum/';
 (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
