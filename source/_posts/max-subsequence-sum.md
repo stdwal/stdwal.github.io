@@ -1,6 +1,6 @@
 ---
 title: 关于分治法求最大子序列和问题
-date: 2018.3.28
+date: 2019.3.10
 tags: algorithms
 ---
 
