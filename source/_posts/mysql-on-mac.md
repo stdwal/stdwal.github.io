@@ -1,9 +1,9 @@
 ---
-title: 《数据结构与算法分析——C语言描述》知识点及代码
+title: MAC OS下的MYSQL安装
 date: 2019.3.13
 ---
 
-#### mac OS下的Mysql安装
+使用HomeBrew安装Mysql
 ```
 $ brew install mysql
 ```
