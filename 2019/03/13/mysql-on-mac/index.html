@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 《数据结构与算法分析——C语言描述》知识点及代码 · stdwal</title><meta name="description" content="《数据结构与算法分析——C语言描述》知识点及代码 - stdwal"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://stdwal.github.io/atom.xml" title="stdwal"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/messages/" target="_self" class="nav-list-link">MESSAGES</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">《数据结构与算法分析——C语言描述》知识点及代码</h1><div class="post-info">2019年3月13日</div><div class="post-content"><h4 id="mac-OS下的Mysql安装"><a href="#mac-OS下的Mysql安装" class="headerlink" title="mac OS下的Mysql安装"></a>mac OS下的Mysql安装</h4><p>‘’’bush<br>brew install mysql<br>‘’’</p>
+<p>‘’’bush<br>mysql.server start<br>‘’’</p>
+<p>‘’’<br>$ mysql_secure_installation</p>
+<p>Securing the MySQL server deployment.</p>
+<p>Connecting to MySQL using a blank password.</p>
+<p>VALIDATE PASSWORD PLUGIN can be used to test passwords<br>and improve security. It checks the strength of password<br>and allows the users to set only those passwords which are<br>secure enough. Would you like to setup VALIDATE PASSWORD plugin?<br>// 提示是否设置密码<br>Press y|Y for Yes, any other key for No: y<br>// 提示选择密码强度等级<br>There are three levels of password validation policy:</p>
+<p>LOW    Length &gt;= 8<br>MEDIUM Length &gt;= 8, numeric, mixed case, and special characters<br>STRONG Length &gt;= 8, numeric, mixed case, special characters and dictionary                  file</p>
+<p>Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 1<br>Please set the password for root here.<br>// 按照所选的密码强度要求设定密码<br>New password: </p>
+<p>Re-enter new password: </p>
+<p>// 提示密码强度50,不符合要求重新设置密码<br>Estimated strength of the password: 50<br>Do you wish to continue with the password provided?(Press y|Y for Yes, any other key for No) : y<br> … Failed! Error: Your password does not satisfy the current policy requirements</p>
+<p>New password: </p>
+<p>Re-enter new password:<br>// 提示密码强度100,符合要求继续进行<br>Estimated strength of the password: 100<br>Do you wish to continue with the password provided?(Press y|Y for Yes, any other key for No) : y<br>By default, a MySQL installation has an anonymous user,<br>allowing anyone to log into MySQL without having to have<br>a user account created for them. This is intended only for<br>testing, and to make the installation go a bit smoother.<br>You should remove them before moving into a production<br>environment.<br>// 提示删除默认无密码用户<br>Remove anonymous users? (Press y|Y for Yes, any other key for No) : y<br>Success.</p>
+<p>Normally, root should only be allowed to connect from<br>‘localhost’. This ensures that someone cannot guess at<br>the root password from the network.<br>// 提示禁止远程root登录<br>Disallow root login remotely? (Press y|Y for Yes, any other key for No) : no</p>
+<p> … skipping.<br>By default, MySQL comes with a database named ‘test’ that<br>anyone can access. This is also intended only for testing,<br>and should be removed before moving into a production<br>environment.</p>
+<p>// 提示删除默认自带的test数据库<br>Remove test database and access to it? (Press y|Y for Yes, any other key for No) : y</p>
+<ul>
+<li><p>Dropping test database…<br>Success.</p>
+</li>
+<li><p>Removing privileges on test database…<br>Success.</p>
+</li>
+</ul>
+<p>Reloading the privilege tables will ensure that all changes<br>made so far will take effect immediately.<br>// 提示是否重新加载privilege tables<br>Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y<br>Success.</p>
+<p>All done!<br>‘’’</p>
+<p>如果出现 <em>Error: Table ‘mysql.role_edges’ doesn’t exist</em> ，使用<br>‘’’<br>mysql_upgrade -u root<br>‘’’</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/03/10/max-subsequence-sum/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'stdwal';
+var disqus_identifier = '2019/03/13/mysql-on-mac/';
+var disqus_title = '《数据结构与算法分析——C语言描述》知识点及代码';
+var disqus_url = 'https://stdwal.github.io/2019/03/13/mysql-on-mac/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//stdwal.disqus.com/count.js" async></script><div class="copyright"><p>© 2017 - 2019 <a href="https://stdwal.github.io">stdwal</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
