@@ -4,15 +4,15 @@ date: 2019.3.13
 ---
 
 #### mac OS下的Mysql安装
-'''bush
-brew install mysql
-'''
+```
+$ brew install mysql
+```
 
-'''bush
-mysql.server start
-'''
+```
+$ mysql.server start
+```
 
-'''
+```
 $ mysql_secure_installation
  
 Securing the MySQL server deployment.
@@ -88,10 +88,10 @@ Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y
 Success.
  
 All done!
-'''
+```
 
 如果出现 *Error: Table 'mysql.role_edges' doesn't exist* ，使用
-'''
-mysql_upgrade -u root
-'''
+```
+$ mysql_upgrade -u root
+```
 
