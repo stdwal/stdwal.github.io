@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Java内存区域 · stdwal</title><meta name="description" content="Java内存区域 - stdwal"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://stdwal.github.io/atom.xml" title="stdwal"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/messages/" target="_self" class="nav-list-link">MESSAGES</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Java内存区域</h1><div class="post-info">2019年3月28日</div><div class="post-content"><p>Java虚拟机在执行Java程序的过程中会把它所管理的内存划分为若干个不同的数据区域。这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。Java虚拟机所管理的内存将会包括以下几个运行时数据区：</p>
+<h2 id="1-程序计数器"><a href="#1-程序计数器" class="headerlink" title="1.程序计数器"></a>1.程序计数器</h2><p>程序计数器（Program Counter Register）是一块较小的内存空间，它的作用可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等基础功能都依赖这个计数器来完成。</p>
+<p>由于Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时间的方式来实现的，在任何一个确定的时刻，一个处理器（对于多核处理器是一个内核）只会执行一条线程中的指令。因此，为了线程切换后能恢复到正确的执行位置，每条线程都需要有一个独立的程序计数器，各条线程之间的计数器互不影响，独立存储，我们称这类内存区域为“线程私有”的内存。</p>
+<p>如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址，如果正在执行的是Native方法，这个计数器值则为空（Undefine）。此内存区域是唯一一个在Java虚拟机规范中没有规定任何OutOfMemoryError情况的区域。</p>
+<h2 id="2-Java虚拟机栈"><a href="#2-Java虚拟机栈" class="headerlink" title="2.Java虚拟机栈"></a>2.Java虚拟机栈</h2><p>与程序计数器一样，Java虚拟机栈（Java Virtual Machine Stacks）也是线程私有的，它的生命周期与线程相同。虚拟机栈描述的是Java方法执行的内存模型：每个方法被执行的时候都会创建一个栈帧（Stack Frame）用于存储局部变量表、操作数栈、动态链接、方法出口等信息。每一个方法被调用直至执行完成的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</p>
+<p>局部变量表存放了编译期可知的各种基本数据类型、对象引用类型和returnAddress类型（指向了一条字节码指令的地址）。</p>
+<p>其中64位长度的long和double类型的数据会占2个局部变量空间（Slot），其余的数据类型只占1个。局部变量表所需的内存空间在编译期间完成分配，当进入一个方法时，这个方法需要在帧中分配多大的局部变量空间是完全确定的，在方法运行期间不会改变局部变量表的大小。</p>
+<p>Java虚拟机规范对这个区域规定了两种异常状况：如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverFlow异常；如果虚拟机栈可以动态拓展，当拓展时无法申请到足够的内存时会抛出OutOfMemoryError异常。</p>
+<h2 id="3-本地方法栈"><a href="#3-本地方法栈" class="headerlink" title="3.本地方法栈"></a>3.本地方法栈</h2><p>本地方法栈（Native Mehtod Stacks）与虚拟机栈所发挥的作用是非常相似的，其区别不过是虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈则是为虚拟机使用到的Native方法服务。</p>
+<h2 id="4-Java堆"><a href="#4-Java堆" class="headerlink" title="4.Java堆"></a>4.Java堆</h2><p>对大多数应用来说，Java堆（Java Heap）是Java虚拟机所管理的内存中最大的一块。Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例都在这里分配内存。</p>
+<p>Java堆是垃圾收集器的主要区域，因此很多时候也被称做GC堆（Garbage Collected Heap）。从内存回收的角度看，由于现在收集器基本都是采用的分代收集算法，所以Java堆中还可以细分为：新生代和老年代。从内存分配的角度看，线程共享的Java堆中可能划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer，TLAB）。进一步划分的目的是为了更好地回收内存，或者更快地分配内存。</p>
+<p>Java堆可以处于物理上不连续的内存空间中，只要逻辑上是连续的即可。在实现时，既可以实现成固定大小的，也可以是可拓展的。如果在堆中没有内存完成实例分配，并且堆也无法再拓展时，将会抛出OutOfMemoryError异常。</p>
+<h2 id="5-方法区"><a href="#5-方法区" class="headerlink" title="5.方法区"></a>5.方法区</h2><p>方法区（Method Area）与Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
+<p>Java虚拟机规范对这个区域的限制非常宽松，除了和Java堆一样不需要连续的内存和可以选择固定大小或者可拓展外，还可以选择不实现垃圾收集。相对而言，垃圾收集行为在这个区域是比较少出现的，但并非数据进入方法区就永久存在了。这个区域的内存回收目标主要是针对常量池的回收和对类型的卸载。</p>
+<p>当方法区无法满足内存分配需求时，将抛出OutOfMemoryError异常。</p>
+<h2 id="6-运行时常量池"><a href="#6-运行时常量池" class="headerlink" title="6.运行时常量池"></a>6.运行时常量池</h2><p>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池（Constant Pool Table），用于存放编译期生成的各种字面量和符号引用，这部分内容将在类加载后存放到方法区的运行是常量池中。</p>
+<p>Java虚拟机规范没有对运行时常量池做任何细节的要求，不同的提供商实现的虚拟机可以按照自己的需要来实现这个内存区域。不过，一般来说，除了保存Class文件中描述的符号引用外，还会把翻译出来的直接引用也存储在运行时常量池中。</p>
+<p>运行时常量池相对于Class文件常量池的另外一个重要特征是具备动态性，Java语言并不要求常量一定只能在编译器产生，也就是并非预置入Class文件中常量池的内容才能进入方法区运行常量池，运行期间也可能将新的常量放入池中，如String类的intern()方法。</p>
+<p>当常量池无法再申请到内存时会抛出OutOfMemoryError异常。</p>
+<p>参考：《深入理解Java虚拟机》</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/03/28/reflect/" class="prev">上一篇</a><a href="/2019/03/25/druid/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'stdwal';
+var disqus_identifier = '2019/03/28/jvm-memory/';
+var disqus_title = 'Java内存区域';
+var disqus_url = 'https://stdwal.github.io/2019/03/28/jvm-memory/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//stdwal.disqus.com/count.js" async></script><div class="copyright"><p>© 2017 - 2019 <a href="https://stdwal.github.io">stdwal</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
