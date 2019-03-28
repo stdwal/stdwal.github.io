@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Java虚拟机垃圾收集 · stdwal</title><meta name="description" content="Java虚拟机垃圾收集 - stdwal"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://stdwal.github.io/atom.xml" title="stdwal"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/messages/" target="_self" class="nav-list-link">MESSAGES</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Java虚拟机垃圾收集</h1><div class="post-info">2019年3月28日</div><div class="post-content"><p>堆中存放着Java几乎所有的对象实例，垃圾收集器在对堆进行回收前，首先要确定哪些对象需要回收：</p>
+<h2 id="引用计数算法（Reference-Counting）"><a href="#引用计数算法（Reference-Counting）" class="headerlink" title="引用计数算法（Reference Counting）"></a>引用计数算法（Reference Counting）</h2><p>给对象添加一个引用计数器，每当有一个地方引用它时，计数器值就加一；当引用失效时，计数器值就减一；任何时刻计数器为0的对象就是不可能再被使用的。引用计数算法的实现简单，判定效率高，但是它很难解决对象之间的相互循环引用的问题。</p>
+<h2 id="根搜索算法（GC-Roots-Tracing）"><a href="#根搜索算法（GC-Roots-Tracing）" class="headerlink" title="根搜索算法（GC Roots Tracing）"></a>根搜索算法（GC Roots Tracing）</h2><p>这个算法的基本思路就是通过一系列的名为“GC Roots”的对象作为起始点，从这些节点开始向下搜索，搜索所走过的路径称为引用链（Reference Chain），当一个对象到GC Roots没有任何引用链相连时（GC Roots到这个对象不可达），则证明此对象时不可用的。</p>
+<p>在Java中，可作为GC Roots的对象包括：</p>
+<ul>
+<li>虚拟机栈（栈帧中的本地变量表）中引用的对象</li>
+<li>方法区中的类静态属性引用的对象</li>
+<li>方法区中的常量引用的对象</li>
+<li>本地方法栈中JNI（Native方法）的引用的对象</li>
+</ul>
+<hr>
+<p>需要被回收的对象至少要经历两次标记过程才会被回收：如果对象在进行根搜索后发现没有与GC Root相连接的引用链，那它将会被第一次标记并且进行一次筛选，筛选的条件是此对象是否有必要执行finalize()方法。当对象没有覆盖finalize()方法，或者finalize()方法已经被虚拟机调用过，虚拟机将这两种情况都视为“没有必要执行”。</p>
+<p>如果这个对象被判定为有必要执行finalize()方法，那么这个对象将会被放置在一个名为F-Queue的队列之中，并在稍后由一条虚拟机自动建立的、低优先级的Finalizer线程区执行。这里所谓的“执行”是指虚拟机会触发这个方法，但并不承诺会等待它运行结束。这样做的原因是：如果一个对象在finalize()方法中执行缓慢，或者发生了死循环（更极端的情况），将很可能会导致F-Queue队列中的其他对象永久处于等待状态，甚至导致整个内存回收系统崩溃。finalize()方法是对象逃脱死亡命运的最后一次机会，稍后GC将对F-Queue中的对象进行第二次小规模的标记，如果对象要在finalize()中成功拯救自己———只要重新与引用链上的任何一个对象建立关联即可，譬如把自己(this)赋值给某个类变量或对象的成员变量，那在第二次标记时它将被移除出即将回收的集合。</p>
+<p>任何一个对象的finalize()方法都只会被系统自动调用一次，如果对象面临下一次回收，finalize()方法不会被再次执行。</p>
+<hr>
+<h2 id="方法区回收"><a href="#方法区回收" class="headerlink" title="方法区回收"></a>方法区回收</h2><p>HotSpot虚拟机中的永久代是没有垃圾收集的，Java虚拟机规范中可以不要求虚拟机在方法区实现垃圾收集，而且方法区进行垃圾收集的“性价比”一般比较低：在堆中，尤其是新生代，常规应用进行一次垃圾收集一般可以回收70%-95%的空间，而永久代的垃圾收集效率远低于此。</p>
+<p>永久代的垃圾收集主要回收两部分内容：废弃常量和无用的类。回收废弃常量与回收Java堆中的对象非常类似。</p>
+<p>判断一个类是否是无用的类需要满足下面三个条件：</p>
+<ul>
+<li>该类所有的实例都已经被回收，Java堆中不存在该类的任何实例。</li>
+<li>加载该类的ClassLoader已经被回收</li>
+<li>该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。</li>
+</ul>
+<hr>
+<p>垃圾收集算法有以下几种：</p>
+<h2 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h2><p>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一收掉所有被标记的对象，在标记完成后统一回收所有被标记的对象。它的主要缺点有两个：标记和清除过程的效率都不高；标记清楚之后会产生大量不连续的内存碎片，空间碎片太多可能会导致，当程序在以后的运行过程中需要分配较大对象时无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。</p>
+<h2 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h2><p>复制算法将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块内存用完了，就将还存活着的对象复制到另一块上面，然后再把已使用过的内存空间一次清理掉。这样使得每次都是对其中的一块进行内存回收，内存分配时也不用考虑内存碎片等复杂情况，只要移动堆顶指针，按顺序分配内存即可，实现简单，运行高效。缺点是将内存缩小为原来的一半，代价很高。</p>
+<h2 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h2><p>标记-整理算法是在标记之后，让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存。</p>
+<h2 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h2><p>分代收集算法根据对象的存活周期的不同将内存划分为几块。一般是把Java堆分为新声代和老年代，新生代中每次垃圾收集时都发现有大批对象死去，只有少量存活，选用复制算法，只需要付出少量存活对象的复制成本就可以完成收集。而老年代中因为对象存活率高、没有额外空间对它进行分配担保，就必须使用“标记-清除”或”标记-整理”算法进行回收。</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2019/03/28/reflect/" class="prev">上一篇</a><a href="/2019/03/28/jvm-memory/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'stdwal';
+var disqus_identifier = '2019/03/28/jvm-gc/';
+var disqus_title = 'Java虚拟机垃圾收集';
+var disqus_url = 'https://stdwal.github.io/2019/03/28/jvm-gc/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//stdwal.disqus.com/count.js" async></script><div class="copyright"><p>© 2017 - 2019 <a href="https://stdwal.github.io">stdwal</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
