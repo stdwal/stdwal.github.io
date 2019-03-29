@@ -27,7 +27,7 @@
 <h2 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h2><p>复制算法将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块内存用完了，就将还存活着的对象复制到另一块上面，然后再把已使用过的内存空间一次清理掉。这样使得每次都是对其中的一块进行内存回收，内存分配时也不用考虑内存碎片等复杂情况，只要移动堆顶指针，按顺序分配内存即可，实现简单，运行高效。缺点是将内存缩小为原来的一半，代价很高。</p>
 <h2 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h2><p>标记-整理算法是在标记之后，让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存。</p>
 <h2 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h2><p>分代收集算法根据对象的存活周期的不同将内存划分为几块。一般是把Java堆分为新声代和老年代，新生代中每次垃圾收集时都发现有大批对象死去，只有少量存活，选用复制算法，只需要付出少量存活对象的复制成本就可以完成收集。而老年代中因为对象存活率高、没有额外空间对它进行分配担保，就必须使用“标记-清除”或”标记-整理”算法进行回收。</p>
-</div></article></div></main><footer><div class="paginator"><a href="/2019/03/28/reflect/" class="prev">上一篇</a><a href="/2019/03/28/jvm-memory/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'stdwal';
+</div></article></div></main><footer><div class="paginator"><a href="/2019/03/29/reflect/" class="prev">上一篇</a><a href="/2019/03/28/jvm-memory/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'stdwal';
 var disqus_identifier = '2019/03/28/jvm-gc/';
 var disqus_title = 'Java虚拟机垃圾收集';
 var disqus_url = 'https://stdwal.github.io/2019/03/28/jvm-gc/';
