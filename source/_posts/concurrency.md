@@ -1,6 +1,6 @@
 ---
-title: Java并发（一）
-Date: 2019.3.29
+title: Java并发
+date: 2019.3.29
 ---
 
 ## Runnable接口
