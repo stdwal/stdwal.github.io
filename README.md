@@ -1,3 +1,2 @@
-# WENG Yue
 
-> The journey is the reward.
+> 旅程即是奖励
